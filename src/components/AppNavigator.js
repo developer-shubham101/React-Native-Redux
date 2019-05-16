@@ -1,13 +1,17 @@
 
 // full code here --> https://github.com/bizz84/redux-navigation-color-picker
-import React from 'react';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import { connect } from 'react-redux';
 import MainPage from './MainPage';
 import ChooseColorPage from './ChooseColorPage';
+import APICallPage from './APICallPage';
 
+/**
+ * App navigation is 
+ */
 export const AppNavigator = createStackNavigator({
-	Main: { screen: MainPage },
+    Main: { screen: MainPage },
+    APICallPage: { screen: APICallPage },
 	ChooseColor: {
 		screen: ChooseColorPage,
 		navigationOptions: {
@@ -15,7 +19,7 @@ export const AppNavigator = createStackNavigator({
 		}
 	}
 }, {
-		initialRouteName: 'Main',
+		initialRouteName: 'APICallPage',
 		mode: 'modal'
 	});
 

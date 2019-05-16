@@ -2,15 +2,14 @@
 import React, { Component } from 'react';
 import { View, Button,Text } from 'react-native';
 import { connect } from 'react-redux';
-import { colorChanged, profileFetch } from '../actions/ColorChangedAction.js';
-import { COLORS } from '../state/Colors.js';
+import {  profileFetch } from '../actions/APICallAction'; 
 import {
     NOTIFICATIONS_FAIL,
     NOTIFICATIONS_LOADING,
     NOTIFICATIONS_RELOAD,
     NOTIFICATIONS_SUCCEED,
 } from '../constants/actionTypes';
-class ChooseColorPage extends Component {
+class APICallPage extends Component {
 
 	onSelectColor(colorName) {
 		// this.props.colorChanged({ colorName });
@@ -21,25 +20,28 @@ class ChooseColorPage extends Component {
 	render() {
 		return (
 			<View>
-				{Object.keys(COLORS).map((key) => (
+				 
 					<Button
-						key={key}
-						title={COLORS[key].name}
-						color={COLORS[key].hexCode}
-						onPress={() => this.onSelectColor(key)}
+						key={"1"}
+						title={"Call API"} 
+						onPress={() => this.onSelectColor("1")}
 					/>
-                ))}
-                <Text>{this.props.notification.status}</Text>
+                 
+                <Text>{this.props.propApi.value}</Text>
 			</View>
 		)
 	}
 }
 
+/*
+ state.api 
+ here 'api' is Recucer which is define in APIReducer.js which is combine in AppReducer.js
+ */
 const mapStateToProps = state => {
-	return { notification: state.notifications  };
+	return { propApi: state.api  };
 };
 
-export default connect(mapStateToProps, {
-    colorChanged,
+//connect default props
+export default connect(mapStateToProps, { 
     profileFetch
-})(ChooseColorPage);
+})(APICallPage);

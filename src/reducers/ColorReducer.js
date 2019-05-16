@@ -5,7 +5,8 @@ const initialState = {
 };
 
 const ColorReducer = (state = initialState, action) => {
-	console.log(action)
+    console.log("ColorReducer")
+    console.log(action)
 	switch (action.type) {
 		case 'COLOR_CHANGED':
 			return { ...state, colorName: action.payload.colorName };

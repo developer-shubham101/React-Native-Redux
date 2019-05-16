@@ -8,11 +8,11 @@ import AppReducer from './src/reducers/AppReducer';
 import AppWithNavigationState from './src/components/AppNavigator';
 
 class ReduxExampleApp extends React.Component {
-	store = createStore(AppReducer);
+	// store = createStore(AppReducer);
 
 	render() {
 		return (
-			<Provider store={this.store}>
+			<Provider store={AppReducer}>
 				<AppWithNavigationState />
 			</Provider>
 		);
