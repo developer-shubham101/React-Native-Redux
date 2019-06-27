@@ -21,11 +21,4 @@ const AppReducer = createStore(
     applyMiddleware(thunk)
 );
 
-
-// const AppReducer = combineReducers({
-// 	color: ColorReducer,
-//     nav: NavReducer,
-//     api: apiReducer // we'll use 'api' in component in state param
-// });
-
 export default AppReducer;

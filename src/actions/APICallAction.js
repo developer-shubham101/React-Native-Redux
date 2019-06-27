@@ -1,36 +1,33 @@
-// full code here --> https://github.com/bizz84/redux-navigation-color-picker
-
 import {
     API_FAIL,
     API_LOADING,
     API_RELOAD,
     API_SUCCEED,
 } from '../constants/actionTypes';
-import { getNotifications } from '../lib/notificationService';
-
-
-const notificationsLoading = () => ({ type: API_LOADING });
-const notificationsSucceed = payload => ({
+import { fetchDataFromApi } from '../lib/apiService';
+ 
+const apiLoading = () => ({ type: API_LOADING });
+const apiSucceed = payload => ({
     type: API_SUCCEED,
     payload,
 });
-const notificationsError = payload => ({ type: API_FAIL, payload });
-const notificationsReload = payload => ({
+const apiError = payload => ({ type: API_FAIL, payload });
+const apiReload = payload => ({
     type: API_RELOAD,
     payload,
 }); 
 
 
-export const profileFetch = () => async (dispatchEvent, getState) => {
+export const userFetch = () => async (dispatchEvent, getState) => {
     console.log("profileFetch");
-    dispatchEvent(notificationsLoading());
+    dispatchEvent(apiLoading());
     try {
         console.log("try");
-        const res = await getNotifications( );
+        const res = await fetchDataFromApi( );
         console.log("getNotifications ");
-        dispatchEvent(notificationsSucceed(res));
+        dispatchEvent(apiSucceed(res));
     } catch (e) {
-        dispatchEvent(notificationsError(e));
+        dispatchEvent(apiError(e));
     }
 };
  

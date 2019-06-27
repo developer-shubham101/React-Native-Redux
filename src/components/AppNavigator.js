@@ -19,7 +19,7 @@ export const AppNavigator = createStackNavigator({
 		}
 	}
 }, {
-		initialRouteName: 'APICallPage',
+		initialRouteName: 'Main',
 		mode: 'modal'
 	});
 

@@ -1,23 +1,16 @@
 // full code here --> https://github.com/bizz84/redux-navigation-color-picker
 import React, { Component } from 'react';
-import { View, Button,Text } from 'react-native';
+import { View, Button } from 'react-native';
 import { connect } from 'react-redux';
-import { colorChanged, profileFetch } from '../actions/ColorChangedAction.js';
+import { colorChanged } from '../actions/ColorChangedAction.js';
 import { COLORS } from '../state/Colors.js';
-import {
-    API_FAIL,
-    API_LOADING,
-    API_RELOAD,
-    API_SUCCEED,
-} from '../constants/actionTypes';
+ 
 class ChooseColorPage extends Component {
 
 	onSelectColor(colorName) {
-		// this.props.colorChanged({ colorName });
-        // this.props.navigation.goBack();
-        this.props.profileFetch();
-	}
-
+		this.props.colorChanged({ colorName });
+        this.props.navigation.goBack();
+	} 
 	render() {
 		return (
 			<View>
@@ -28,8 +21,7 @@ class ChooseColorPage extends Component {
 						color={COLORS[key].hexCode}
 						onPress={() => this.onSelectColor(key)}
 					/>
-                ))}
-                <Text>{this.props.notification.status}</Text>
+                ))} 
 			</View>
 		)
 	}
@@ -40,6 +32,5 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, {
-    colorChanged,
-    profileFetch
+    colorChanged
 })(ChooseColorPage);

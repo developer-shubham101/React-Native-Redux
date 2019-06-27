@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { View, Button, Text } from 'react-native';
 import { connect } from 'react-redux';
-import { profileFetch } from '../actions/APICallAction';
+import { userFetch } from '../actions/APICallAction';
 import {
     API_FAIL,
     API_LOADING,
@@ -12,10 +12,8 @@ import {
 import { LOADING, ERROR, SUCCESS } from '../constants/misc';  
 class APICallPage extends Component {
 
-    callApi(colorName) {
-        // this.props.colorChanged({ colorName });
-        // this.props.navigation.goBack();
-        this.props.profileFetch();
+    callApi(colorName) {  
+        this.props.userFetch();
     }
 
     render() {  
@@ -59,5 +57,5 @@ const mapStateToProps = state => {
 
 //connect default props
 export default connect(mapStateToProps, {
-    profileFetch
+    userFetch
 })(APICallPage);

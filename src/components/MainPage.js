@@ -1,4 +1,4 @@
-// full code here --> https://github.com/bizz84/redux-navigation-color-picker
+
 import React, { Component } from 'react';
 import { View, Button } from 'react-native';
 import { connect } from 'react-redux';
@@ -8,6 +8,9 @@ class MainPage extends Component {
 
 	onChooseColor() {
 		this.props.navigation.navigate('ChooseColor');
+    }
+    onApiOperation() {
+		this.props.navigation.navigate('APICallPage');
 	}
 
 	selectedColor() {
@@ -23,6 +26,11 @@ class MainPage extends Component {
 					onPress={this.onChooseColor.bind(this)}
 					color="#FFF"
 					title="Choose Color"
+				/>
+                <Button
+					onPress={this.onApiOperation.bind(this)}
+					color="#FFF"
+					title="Open API Page"
 				/>
 			</View>
 		)

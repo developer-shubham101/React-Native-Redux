@@ -1,8 +1,11 @@
-// full code here --> https://github.com/bizz84/redux-navigation-color-picker
- 
+import {
+    COLOR_CHANGED
+} from '../constants/actionTypes';
+
+
 export const colorChanged = (type) => {
     return {
-        type: 'COLOR_CHANGED',
+        type: COLOR_CHANGED,
         payload: type
     };
 }; 
