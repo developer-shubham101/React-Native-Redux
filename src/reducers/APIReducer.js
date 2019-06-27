@@ -1,27 +1,26 @@
 import {
-    NOTIFICATIONS_FAIL,
-    NOTIFICATIONS_LOADING,
-    NOTIFICATIONS_RELOAD,
-    NOTIFICATIONS_SUCCEED,
+    API_FAIL,
+    API_LOADING,
+    API_RELOAD,
+    API_SUCCEED,
 } from '../constants/actionTypes';
-import { LOADING, ERROR, SUCCESS } from '../constants/misc';
-import { sortByLastUpdated } from '../shared_lib/misc';
+import { LOADING, ERROR, SUCCESS } from '../constants/misc'; 
 
 export default function apiReducer(state = {}, action) {
     console.log("Inside notification.js")
     console.log(action)
     switch (action.type) {
-        case NOTIFICATIONS_FAIL:
+        case API_FAIL:
             return Object.assign({}, state, {
                 status: ERROR,
                 error: action.payload.errMessage,
             });
-        case NOTIFICATIONS_LOADING:
+        case API_LOADING:
             return Object.assign({}, state, { status: LOADING });
-        case NOTIFICATIONS_RELOAD:
-        case NOTIFICATIONS_SUCCEED:
+        case API_RELOAD:
+        case API_SUCCEED:
              
-            return Object.assign({}, state, { status: SUCCESS, value: "hhfhfghf" });
+            return Object.assign({}, state, { status: SUCCESS, value: action.payload });
         default:
             return state;
     }

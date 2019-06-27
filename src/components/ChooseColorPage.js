@@ -5,10 +5,10 @@ import { connect } from 'react-redux';
 import { colorChanged, profileFetch } from '../actions/ColorChangedAction.js';
 import { COLORS } from '../state/Colors.js';
 import {
-    NOTIFICATIONS_FAIL,
-    NOTIFICATIONS_LOADING,
-    NOTIFICATIONS_RELOAD,
-    NOTIFICATIONS_SUCCEED,
+    API_FAIL,
+    API_LOADING,
+    API_RELOAD,
+    API_SUCCEED,
 } from '../constants/actionTypes';
 class ChooseColorPage extends Component {
 

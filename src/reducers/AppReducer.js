@@ -1,20 +1,25 @@
-// full code here --> https://github.com/bizz84/redux-navigation-color-picker
 import { createStore, combineReducers, applyMiddleware } from 'redux';
+
 import ColorReducer from './ColorReducer';
 import NavReducer from './NavReducer';
-
 import apiReducer from './APIReducer';
+
+//redux-thunk is a middelware which handle async operation in action
 import thunk from 'redux-thunk';
-const store =  combineReducers({
-	color: ColorReducer,
+
+
+//combine all reducers to use them in compont
+//we can use reducer in component with these 'KEY'
+const store = combineReducers({
+    color: ColorReducer,
     nav: NavReducer,
-    api: apiReducer // we'll use 'api' in component in state param
+    api: apiReducer // here api is 'KEY'
 });
 
 const AppReducer = createStore(
     store,
     applyMiddleware(thunk)
-  );
+);
 
 
 // const AppReducer = combineReducers({
