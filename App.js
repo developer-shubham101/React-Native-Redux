@@ -1,4 +1,4 @@
-// full code here --> https://github.com/bizz84/redux-navigation-color-picker
+// full code here --> 
 import React from 'react';
 import { AppRegistry } from 'react-native';
 import { Provider } from 'react-redux';

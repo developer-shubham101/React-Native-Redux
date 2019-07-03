@@ -1,4 +1,4 @@
-// full code here --> https://github.com/bizz84/redux-navigation-color-picker
+// full code here --> 
 export const COLORS = {
 	RED: { name: 'RED', hexCode: '#DE5448' },
 	GREEN: { name: 'GREEN', hexCode: '#17A05E' },

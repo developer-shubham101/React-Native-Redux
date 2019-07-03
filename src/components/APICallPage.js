@@ -1,4 +1,4 @@
-// full code here --> https://github.com/bizz84/redux-navigation-color-picker
+// full code here --> 
 import React, { Component } from 'react';
 import { View, Button, Text } from 'react-native';
 import { connect } from 'react-redux';
@@ -9,39 +9,39 @@ import {
     API_RELOAD,
     API_SUCCEED,
 } from '../constants/actionTypes';
-import { LOADING, ERROR, SUCCESS } from '../constants/misc';  
+import { LOADING, ERROR, SUCCESS } from '../constants/misc';
 class APICallPage extends Component {
 
-    callApi(colorName) {  
+    callApi(colorName) {
         this.props.userFetch();
     }
 
-    render() {  
-        var result 
-        if (this.props.propApi.status == SUCCESS){
-             
+    render() {
+        var result
+        if (this.props.propApi.status == SUCCESS) {
+
             result = this.props.propApi.value.data.map((data) => {
                 console.log(data)
                 return <View><Text>{data.email}</Text></View>
             })
-        }else if (this.props.propApi.status == LOADING){
-             
+        } else if (this.props.propApi.status == LOADING) {
+
             return <View><Text>{"Please wait..."}</Text></View>
-        } else{
-            
+        } else {
+
         }
-        {/* countText += </Text> */}
+        {/* countText += </Text> */ }
         return (
-            <View> 
+            <View>
                 <Button
                     key={"1"}
                     title={"Call API"}
                     onPress={() => this.callApi("1")}
-                />  
+                />
                 {
                     result
                 }
-                
+
             </View>
         )
     }

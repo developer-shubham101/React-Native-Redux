@@ -1,4 +1,4 @@
-// full code here --> https://github.com/bizz84/redux-navigation-color-picker
+// full code here --> 
 import React, { Component } from 'react';
 import { View, Button } from 'react-native';
 import { connect } from 'react-redux';
