@@ -6,6 +6,7 @@ import apiReducer from './APIReducer';
 
 //redux-thunk is a middelware which handle async operation in action
 import thunk from 'redux-thunk';
+import { defaultState } from '../constants/misc';
 
 
 //combine all reducers to use them in compont
@@ -17,7 +18,8 @@ const store = combineReducers({
 });
 
 const AppReducer = createStore(
-    store,
+	store,
+	defaultState,
     applyMiddleware(thunk)
 );
 

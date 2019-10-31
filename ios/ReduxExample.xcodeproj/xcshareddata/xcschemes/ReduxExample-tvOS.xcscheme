@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "Redux-tvOS.app"
-               BlueprintName = "Redux-tvOS"
-               ReferencedContainer = "container:Redux.xcodeproj">
+               BuildableName = "ReduxExample-tvOS.app"
+               BlueprintName = "ReduxExample-tvOS"
+               ReferencedContainer = "container:ReduxExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "Redux-tvOSTests.xctest"
-               BlueprintName = "Redux-tvOSTests"
-               ReferencedContainer = "container:Redux.xcodeproj">
+               BuildableName = "ReduxExample-tvOSTests.xctest"
+               BlueprintName = "ReduxExample-tvOSTests"
+               ReferencedContainer = "container:ReduxExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,9 +61,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "Redux-tvOSTests.xctest"
-               BlueprintName = "Redux-tvOSTests"
-               ReferencedContainer = "container:Redux.xcodeproj">
+               BuildableName = "ReduxExample-tvOSTests.xctest"
+               BlueprintName = "ReduxExample-tvOSTests"
+               ReferencedContainer = "container:ReduxExample.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "Redux-tvOS.app"
-            BlueprintName = "Redux-tvOS"
-            ReferencedContainer = "container:Redux.xcodeproj">
+            BuildableName = "ReduxExample-tvOS.app"
+            BlueprintName = "ReduxExample-tvOS"
+            ReferencedContainer = "container:ReduxExample.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "Redux-tvOS.app"
-            BlueprintName = "Redux-tvOS"
-            ReferencedContainer = "container:Redux.xcodeproj">
+            BuildableName = "ReduxExample-tvOS.app"
+            BlueprintName = "ReduxExample-tvOS"
+            ReferencedContainer = "container:ReduxExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -113,9 +113,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "Redux-tvOS.app"
-            BlueprintName = "Redux-tvOS"
-            ReferencedContainer = "container:Redux.xcodeproj">
+            BuildableName = "ReduxExample-tvOS.app"
+            BlueprintName = "ReduxExample-tvOS"
+            ReferencedContainer = "container:ReduxExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

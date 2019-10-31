@@ -7,7 +7,7 @@ import {
 import { LOADING, ERROR, SUCCESS } from '../constants/misc'; 
 
 export default function apiReducer(state = {}, action) {
-    console.log("Inside notification.js")
+    console.log("Inside apiReducer.js")
     console.log(action)
     switch (action.type) {
         case API_FAIL:

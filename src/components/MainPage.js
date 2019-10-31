@@ -17,7 +17,7 @@ class MainPage extends Component {
 	}
 
 	selectedColor() {
-		const { colorName } = this.props;
+		const { colorName } = this.props.rexColor;
 		return COLORS[colorName].hexCode;
 	}
 
@@ -27,17 +27,17 @@ class MainPage extends Component {
 			<View style={{ flex: 1, alignSelf: 'stretch', backgroundColor: color }}>
                 <Button
 					onPress={this.openDrawer.bind(this)}
-					color="#FFF"
+					color="#F0d"
 					title="Open Menu"
 				/>
 				<Button
 					onPress={this.onChooseColor.bind(this)}
-					color="#FFF"
+					color="#F0d"
 					title="Choose Color"
 				/>
                 <Button
 					onPress={this.onApiOperation.bind(this)}
-					color="#FFF"
+					color="#F0d"
 					title="Open API Page"
 				/>
 			</View>
@@ -46,7 +46,7 @@ class MainPage extends Component {
 }
 
 const mapStateToProps = state => {
-	return { colorName: state.color.colorName };
+	return { rexColor: state.color };
 };
 
 export default connect(mapStateToProps)(MainPage);
