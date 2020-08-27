@@ -5,8 +5,8 @@ const SERVICE_URL = BASE_URL + 'users';
 console.log("fetchDataFromApisq");
 console.log(SERVICE_URL);
 export const fetchDataFromApi = async () =>
-    await serviceTemplate(
-        fetch(`${SERVICE_URL}`, {
-            method: 'GET'
-        }), SERVICE_URL
-    );
+	await serviceTemplate(
+		fetch(`${SERVICE_URL}`, {
+			method: 'GET'
+		}), SERVICE_URL
+	);
