@@ -1,5 +1,5 @@
 {
-	"name": "FunderBubble",
+	"name": "ReactNativeRedux",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
@@ -15,6 +15,8 @@
 		"@react-native-community/datetimepicker": "^3.0.2",
 		"@react-native-community/masked-view": "^0.1.10",
 		"@react-native-community/toolbar-android": "^0.1.0-rc.2",
+		"@react-native-firebase/app": "^10.8.1",
+		"@react-native-firebase/messaging": "^10.8.1",
 		"i18n-js": "^3.7.0",
 		"lodash": "^4.17.15",
 		"moment": "^2.29.0",
@@ -23,6 +25,7 @@
 		"react-native": "0.63.3",
 		"react-native-appearance": "^0.3.4",
 		"react-native-fast-image": "^8.1.5",
+		"react-native-firebase": "^5.6.0",
 		"react-native-gesture-handler": "^1.6.1",
 		"react-native-keyboard-aware-scroll-view": "^0.9.1",
 		"react-native-localize": "^1.4.0",

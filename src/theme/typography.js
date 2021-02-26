@@ -1,11 +1,11 @@
 import { Platform } from 'react-native';
 import colors from './colors';
 
-export const fontFamily = "Roboto-Regular"; //Platform.select({ android: 'sans-serif', ios: 'Helvetica' });
-export const fontFamilyBold = "Roboto-Bold";
-export const fontFamilySemiBold = "Roboto-Medium";
-export const fontFamilyLight = "Roboto-Light";
-export const fontFamilyMedium = "Roboto-Medium";
+export const fontFamily = "Cabin-Regular"; //Platform.select({ android: 'sans-serif', ios: 'Helvetica' });
+export const fontFamilyBold = "Cabin-Bold";
+export const fontFamilySemiBold = "Cabin-Medium";
+export const fontFamilyLight = "Cabin-Light";
+export const fontFamilyMedium = "Cabin-Medium";
 
 const fontWeightRegular = 'normal';
 const fontWeightSemiBold = '600';
