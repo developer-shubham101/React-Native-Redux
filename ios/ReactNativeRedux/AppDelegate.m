@@ -4,7 +4,7 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 
-//#import <Firebase.h>
+@import Firebase;
  
 
 
@@ -49,7 +49,7 @@ static void InitializeFlipper(UIApplication *application) {
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
   
-//  [FIRApp configure];
+ [FIRApp configure];
   
   return YES;
 }

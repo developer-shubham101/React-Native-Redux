@@ -1,10 +1,7 @@
 PODS:
   - boost-for-react-native (1.63.0)
   - CocoaAsyncSocket (7.6.5)
-  - Crashlytics (3.14.0):
-    - Fabric (~> 1.10.2)
   - DoubleConversion (1.1.6)
-  - Fabric (1.10.2)
   - FBLazyVector (0.63.3)
   - FBReactNativeSpec (0.63.3):
     - Folly (= 2020.01.13.00)
@@ -13,20 +10,11 @@ PODS:
     - React-Core (= 0.63.3)
     - React-jsi (= 0.63.3)
     - ReactCommon/turbomodule/core (= 0.63.3)
-  - Firebase/Core (7.6.0):
-    - Firebase/CoreOnly
-    - FirebaseAnalytics (= 7.6.0)
   - Firebase/CoreOnly (7.6.0):
     - FirebaseCore (= 7.6.0)
-  - FirebaseAnalytics (7.6.0):
-    - FirebaseCore (~> 7.0)
-    - FirebaseInstallations (~> 7.0)
-    - GoogleAppMeasurement (= 7.6.0)
-    - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
-    - GoogleUtilities/MethodSwizzler (~> 7.0)
-    - GoogleUtilities/Network (~> 7.0)
-    - "GoogleUtilities/NSData+zlib (~> 7.0)"
-    - nanopb (~> 2.30907.0)
+  - Firebase/Messaging (7.6.0):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (~> 7.6.0)
   - FirebaseCore (7.6.0):
     - FirebaseCoreDiagnostics (~> 7.4)
     - GoogleUtilities/Environment (~> 7.0)
@@ -41,6 +29,18 @@ PODS:
     - GoogleUtilities/Environment (~> 7.0)
     - GoogleUtilities/UserDefaults (~> 7.0)
     - PromisesObjC (~> 1.2)
+  - FirebaseInstanceID (7.7.0):
+    - FirebaseCore (~> 7.0)
+    - FirebaseInstallations (~> 7.0)
+    - GoogleUtilities/Environment (~> 7.0)
+    - GoogleUtilities/UserDefaults (~> 7.0)
+  - FirebaseMessaging (7.6.0):
+    - FirebaseCore (~> 7.0)
+    - FirebaseInstanceID (~> 7.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
+    - GoogleUtilities/Environment (~> 7.0)
+    - GoogleUtilities/Reachability (~> 7.0)
+    - GoogleUtilities/UserDefaults (~> 7.0)
   - Flipper (0.74.0):
     - Flipper-Folly (~> 2.5)
     - Flipper-RSocket (~> 1.3)
@@ -97,12 +97,6 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.5)
-  - GoogleAppMeasurement (7.6.0):
-    - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
-    - GoogleUtilities/MethodSwizzler (~> 7.0)
-    - GoogleUtilities/Network (~> 7.0)
-    - "GoogleUtilities/NSData+zlib (~> 7.0)"
-    - nanopb (~> 2.30907.0)
   - GoogleDataTransport (8.2.0):
     - nanopb (~> 2.30907.0)
   - GoogleUtilities/AppDelegateSwizzler (7.2.2):
@@ -113,8 +107,6 @@ PODS:
     - PromisesObjC (~> 1.2)
   - GoogleUtilities/Logger (7.2.2):
     - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (7.2.2):
-    - GoogleUtilities/Logger
   - GoogleUtilities/Network (7.2.2):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
@@ -383,15 +375,13 @@ PODS:
     - React-Core
     - SDWebImage (~> 5.8)
     - SDWebImageWebPCoder (~> 0.6.1)
-  - RNFirebase (5.6.0):
-    - Firebase/Core
-    - React
-    - RNFirebase/Crashlytics (= 5.6.0)
-  - RNFirebase/Crashlytics (5.6.0):
-    - Crashlytics
-    - Fabric
-    - Firebase/Core
-    - React
+  - RNFBApp (10.8.1):
+    - Firebase/CoreOnly (~> 7.6.0)
+    - React-Core
+  - RNFBMessaging (10.8.1):
+    - Firebase/Messaging (~> 7.6.0)
+    - React-Core
+    - RNFBApp
   - RNGestureHandler (1.9.0):
     - React-Core
   - RNLocalize (1.4.3):
@@ -468,7 +458,8 @@ DEPENDENCIES:
   - "RNCMaskedView (from `../node_modules/@react-native-community/masked-view`)"
   - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
   - RNFastImage (from `../node_modules/react-native-fast-image`)
-  - RNFirebase (from `../node_modules/react-native-firebase/ios`)
+  - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
+  - "RNFBMessaging (from `../node_modules/@react-native-firebase/messaging`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNLocalize (from `../node_modules/react-native-localize`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
@@ -481,13 +472,12 @@ SPEC REPOS:
   trunk:
     - boost-for-react-native
     - CocoaAsyncSocket
-    - Crashlytics
-    - Fabric
     - Firebase
-    - FirebaseAnalytics
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseInstallations
+    - FirebaseInstanceID
+    - FirebaseMessaging
     - Flipper
     - Flipper-DoubleConversion
     - Flipper-Folly
@@ -495,7 +485,6 @@ SPEC REPOS:
     - Flipper-PeerTalk
     - Flipper-RSocket
     - FlipperKit
-    - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
     - libevent
@@ -572,8 +561,10 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-community/datetimepicker"
   RNFastImage:
     :path: "../node_modules/react-native-fast-image"
-  RNFirebase:
-    :path: "../node_modules/react-native-firebase/ios"
+  RNFBApp:
+    :path: "../node_modules/@react-native-firebase/app"
+  RNFBMessaging:
+    :path: "../node_modules/@react-native-firebase/messaging"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNLocalize:
@@ -592,16 +583,15 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
-  Crashlytics: 9220f5bc89e7a618df411b4f639389dbfb0e03d2
   DoubleConversion: cde416483dac037923206447da6e1454df403714
-  Fabric: ea977e3cd9c20425516d3dafd3bf8c941c51223f
   FBLazyVector: 878b59e31113e289e275165efbe4b54fa614d43d
   FBReactNativeSpec: 7da9338acfb98d4ef9e5536805a0704572d33c2f
   Firebase: e1e089d9aac215a52442583f818ab61de3c4581b
-  FirebaseAnalytics: 9f8f4feab1f3fddf4e4515f8f022fe6aa9e51043
   FirebaseCore: 0a43b7f1c5b36f3358cd703011ca4c7e0df55870
   FirebaseCoreDiagnostics: 179bf3831213451c8addd036aca7fcf5492ec154
   FirebaseInstallations: 42c86e7b02ff75b7f27f85833bf5dcb5f38a9774
+  FirebaseInstanceID: cf940324a20ac14a27ad1e931d15ac9d335526db
+  FirebaseMessaging: 4b9b2850fcfcaac2820097ee3703ba6cfff3df84
   Flipper: c1ad50344bffdce628b1906b48f6e7cd06724236
   Flipper-DoubleConversion: 38631e41ef4f9b12861c67d17cb5518d06badc41
   Flipper-Folly: f7a3caafbd74bda4827954fd7a6e000e36355489
@@ -611,7 +601,6 @@ SPEC CHECKSUMS:
   FlipperKit: f42987ea58737ac0fb3fbc38f8e703452ba56940
   Folly: b73c3869541e86821df3c387eb0af5f65addfab4
   glog: 40a13f7840415b9a77023fbcae0f1e6f43192af3
-  GoogleAppMeasurement: c542a2feaac9ab98fd074e8f1a02c3585bbfbd47
   GoogleDataTransport: 1024b1a4dfbd7a0e92cb20d7e0a6f1fb66b449a4
   GoogleUtilities: 31c5b01f978a70c6cff2afc6272b3f1921614b43
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
@@ -646,7 +635,8 @@ SPEC CHECKSUMS:
   RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
   RNDateTimePicker: 8a51a2216c307769e69ef827293d59549ab1ca23
   RNFastImage: d4870d58f5936111c56218dbd7fcfc18e65b58ff
-  RNFirebase: 37daa9a346d070f9f6ee1f3b4aaf4c8e3b1d5d1c
+  RNFBApp: 02bde3edecf2e9694b908a5d3504e03449980f20
+  RNFBMessaging: 1823217d31e942531cc3f51fb5367dcbc69c1e10
   RNGestureHandler: 9b7e605a741412e20e13c512738a31bd1611759b
   RNLocalize: 7c7aeda16c01db7a0918981c14875c0a53be9b79
   RNReanimated: e03f7425cb7a38dcf1b644d680d1bfc91c3337ad
