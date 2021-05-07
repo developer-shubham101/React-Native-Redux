@@ -114,8 +114,7 @@ export default class FcmService {
 				if (remoteMessage) {
 					onOpenNotification(remoteMessage)
 				}
-			}
-			);
+			});
 
 		// Foreground state messages
 		this.messageListener = messaging().onMessage(async remoteMessage => {
@@ -134,8 +133,11 @@ export default class FcmService {
 
 		// Triggered when have new token
 		messaging().onTokenRefresh(fcmToken => {
-			// console.log("New token refresh: ", fcmToken)
-			this.setToken(fcmToken)
+			console.log("New token refresh: ", fcmToken)
+			if (fcmToken) {
+				this.setToken(fcmToken);
+			}
+			
 		})
 
 	}

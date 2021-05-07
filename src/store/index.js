@@ -6,6 +6,8 @@ import { createBlacklistFilter } from 'redux-persist-transform-filter';
 import AsyncStorage from '@react-native-community/async-storage';
 
 
+import { composeWithDevTools } from 'remote-redux-devtools';
+
 import reducers from '../reducers';
 
 const categoryTreeSubsetBlacklistFilter = createBlacklistFilter(
@@ -58,7 +60,8 @@ const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export const store = createStore(
 	persistedReducer,
-	composeEnhancer(applyMiddleware(thunk)),
+	// composeEnhancer(applyMiddleware(thunk)),
+	composeWithDevTools(applyMiddleware(thunk)),
 );
 
 export const persistor = persistStore(store);
