@@ -19,7 +19,7 @@
 		"@react-native-firebase/app": "^10.8.1",
 		"@react-native-firebase/messaging": "^10.8.1",
 		"i18n-js": "^3.7.0",
-		"lodash": "^4.17.15",
+		"lodash": "^4.17.21",
 		"moment": "^2.29.0",
 		"prop-types": "^15.7.2",
 		"react": "16.13.1",
