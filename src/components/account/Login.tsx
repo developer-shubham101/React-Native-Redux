@@ -10,7 +10,7 @@ import {
 import { ThemeContext } from '../../theme';
 
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import NavigationService from '../../navigation/NavigationService';
+import { useNavigation } from '@react-navigation/native';
 
 const Login = ({
 	loading,
@@ -30,12 +30,14 @@ const Login = ({
 	const [userName, setuserName] = useState('');
 	const [userPassword, setuserPassword] = useState('');
 
+
+
 	// Reference
 	const passwordInput = useRef();
 
 	const onLoginPress = () => {
 		_auth({ user_name: "enterUserName", password: "enterPassword" });
-		NavigationService.navigate(NAVIGATION_DASHBOARD)
+		navigation.navigate(NAVIGATION_DASHBOARD)
 	};
 
 	const renderButtons = () => {
@@ -76,11 +78,11 @@ const Login = ({
 
 	return (
 		<AppSafeAreaView>
-				<View style={styles.toolBar(theme)}>
-						<Text style={{marginLeft: 10}} color={TEXT_COLOR_BLACK}
-							  type={HEADING}>{'LOGIN'}</Text>
+			<View style={styles.toolBar(theme)}>
+				<Text style={{ marginLeft: 10 }} color={TEXT_COLOR_BLACK}
+					type={HEADING}>{'LOGIN'}</Text>
 
-				</View>
+			</View>
 			<View
 				style={{ flex: 1 }}
 				onLayout={onPageLayout}
@@ -213,7 +215,7 @@ const mapStateToProps = ({ customerAuth }) => {
 	const {
 		error,
 		success,
-		loading, 
+		loading,
 
 
 		enterUserName,
@@ -246,5 +248,5 @@ Login.defaultProps = {
 
 export default connect(mapStateToProps, {
 	auth,
-	
+
 })(Login);

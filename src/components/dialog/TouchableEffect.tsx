@@ -32,6 +32,7 @@ import {
 const { OS } = Platform;
 
 class TouchableEffect extends Component {
+	public props: any;
 
     render() {
         let touchable;

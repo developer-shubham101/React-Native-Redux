@@ -13,7 +13,6 @@ import {
 import { logError } from '../../helper/logger';
 import { ThemeContext } from '../../theme';
 import { USER_TOKEN_KEY, USER_DETAILS_KEY } from '../../helper/constants';
-import NavigationService from '../../navigation/NavigationService';
 
 const AuthLoading = (props) => {
 	const theme = useContext(ThemeContext);
@@ -31,16 +30,16 @@ const AuthLoading = (props) => {
 			// console.log("isWalkthrougn", isWalkthrougn);
 			// appOperation.setCustomerToken(customerToken);
 
-				props.navigation.navigate(
-						(customerToken ? NAVIGATION_DASHBOARD : NAVIGATION_AUTH_STACK_PATH)
-					);
-			
+			props.navigation.navigate(
+				(customerToken ? NAVIGATION_DASHBOARD : NAVIGATION_AUTH_STACK_PATH)
+			);
+
 		} catch (e) {
 			logError(e);
 			// TODO: add error screen via switch navigation
 		}
 	};
-	
+
 
 	return (
 		<View style={styles.container(theme)}>

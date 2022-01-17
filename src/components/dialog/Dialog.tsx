@@ -38,6 +38,24 @@ const { OS } = Platform;
 import PropTypes from 'prop-types';
 
 class Dialog extends Component {
+	public props: any;
+	public children: any;
+	public contentStyle: any;
+	public title: any;
+	public titleStyle: any;
+	public buttons: any;
+	public buttonsStyle: any;
+	public dialogStyle: any;
+	public visible: any;
+	public animationType: any;
+	public onRequestClose: any;
+	public onShow: any;
+	public onOrientationChange: any;
+	public onTouchOutside: any;
+	public overlayStyle: any;
+	public supportedOrientations: any;
+	public keyboardDismissMode: any;
+	public keyboardShouldPersistTaps: any;
 
 	renderContent() {
 		const { children, contentStyle } = this.props;
