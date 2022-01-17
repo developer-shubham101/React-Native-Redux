@@ -1,27 +1,27 @@
 import React from 'react';
-import {createAppContainer, createSwitchNavigator} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import Login from '../components/account/Login';
 import Dashboard from '../components/account/Dashboard';
 import * as routes from './routes';
 import AuthLoading from '../components/account/AuthLoading';
 
+const Stack = createStackNavigator();
 
-const AuthStack = createStackNavigator({
-	[routes.NAVIGATION_LOGIN_PATH]: Login,
-}, {
-	headerMode: 'none',
-});
+const Navigator = () => {
 
+	function PostLogin() {
+		return <Stack.Navigator headerMode="none">
+			<Stack.Screen name={routes.NAVIGATION_AUTH_LOADING_SWITCH} component={AuthLoading} />
+			<Stack.Screen name={routes.NAVIGATION_AUTH_STACK_PATH} component={Login} />
+			<Stack.Screen name={routes.NAVIGATION_DASHBOARD} component={Dashboard} />
+		</Stack.Navigator>;
+	}
 
-const AccountSwitch = createSwitchNavigator({
-	// Requests,
-
-	[routes.NAVIGATION_AUTH_LOADING_SWITCH]: AuthLoading,
-	[routes.NAVIGATION_AUTH_STACK_PATH]: AuthStack,
-	[routes.NAVIGATION_DASHBOARD]: Dashboard,
-
-});
-
-
-export const Navigator = createAppContainer(AccountSwitch);
+	return (
+		<NavigationContainer>
+			<PostLogin />
+		</NavigationContainer>
+	);
+};
+export { Navigator };

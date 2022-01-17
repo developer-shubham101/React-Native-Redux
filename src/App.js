@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Provider } from 'react-redux';
-import { store, persistor } from './store';
+import { store } from './store';
 import { ThemeManager, theme } from './theme';
 import { Navigator } from './navigation/Navigator';
-import NavigationService from './navigation/NavigationService';
 import { onAppStart } from './helper/app';
 
 import SplashScreen from 'react-native-splash-screen';
 import connect from 'react-redux/lib/connect/connect';
-import { AppRegistry, Platform } from 'react-native';
+import { AppRegistry } from 'react-native';
 
 import Toast from 'react-native-toast-message';
 import RootComponent from './RootComponent';
@@ -25,12 +24,10 @@ class ReactNativeRedux extends React.Component {
 			<Provider store={store}>
 				<ThemeManager theme={theme}>
 					<RootComponent>
-						<Navigator
-							ref={(navigatorRef) => {
-								NavigationService.setTopLevelNavigator(navigatorRef);
-							}}
-						/>
-						<Toast ref={(ref) => Toast.setRef(ref)} />
+						<>
+							<Navigator />
+							<Toast ref={(ref) => Toast.setRef(ref)} />
+						</>
 					</RootComponent>
 				</ThemeManager>
 			</Provider>
