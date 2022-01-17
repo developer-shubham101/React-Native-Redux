@@ -34,6 +34,13 @@ import {
 import Dialog from './Dialog'
 
 class ProgressDialog extends Component {
+	public props: any;
+	public message: any;
+	public messageStyle: any;
+	public activityIndicatorColor: any;
+	public activityIndicatorSize: any;
+	public activityIndicatorStyle: any;
+
     render() {
         const {
             message, messageStyle, activityIndicatorColor, activityIndicatorSize, activityIndicatorStyle

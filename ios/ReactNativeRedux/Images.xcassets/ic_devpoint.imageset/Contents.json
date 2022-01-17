@@ -1,7 +1,6 @@
 {
   "images" : [
     {
-      "filename" : "developer point -full (2).jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -10,6 +9,7 @@
       "scale" : "2x"
     },
     {
+      "filename" : "MyNewLogo 3.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }

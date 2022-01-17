@@ -36,38 +36,37 @@ import { Text } from './../common'
 const { OS } = Platform;
 
 import PropTypes from 'prop-types';
-import { HEADING, SEMI_BOLD } from './Text';
-import { Button } from './Button';
 
-class AppConfirmDialog extends Component {
-
-
-	renderButtons() {
-		const { negativeButton, positiveButton } = this.props;
-	 
-		return (
-			<View weight={SEMI_BOLD} style={{ padding: 10, flexDirection: 'row' }}>
-				<Button onPress={negativeButton.onPress} type={3} style={{ flex: 1, marginRight: 10, }}>
-					{negativeButton.title}
-				</Button>
-				<Button onPress={positiveButton.onPress} style={{ flex: 1, marginLeft: 10, }}>
-					{positiveButton.title}
-				</Button>
-			</View>
-		)
-	}
-
+class AppDialog extends Component {
+	public props: any;
+	public children: any;
+	public contentStyle: any;
+	public title: any;
+	public titleStyle: any;
+	public buttons: any;
+	public buttonsStyle: any;
+	public dialogStyle: any;
+	public visible: any;
+	public animationType: any;
+	public onRequestClose: any;
+	public onShow: any;
+	public onOrientationChange: any;
+	public onTouchOutside: any;
+	public overlayStyle: any;
+	public supportedOrientations: any;
+	public keyboardDismissMode: any;
+	public keyboardShouldPersistTaps: any;
 
 	renderContent() {
 		const { children, contentStyle } = this.props;
-		const { message, messageStyle } = this.props;
+
 		return (
-			<View weight={SEMI_BOLD} style={[{
-				// width: '100%',
-				margin: 12,
-				// paddingTop: 20
+			<View style={[{
+				width: '100%',
+				padding: 24,
+				paddingTop: 20
 			}, contentStyle]}>
-				<Text style={{}}>{message}</Text>
+				{children}
 			</View>
 		)
 	}
@@ -75,15 +74,15 @@ class AppConfirmDialog extends Component {
 	renderTitle() {
 		const { title, titleStyle } = this.props;
 
-		// const textAlign = OS === 'ios' ? "center" : null;
+		const textAlign = OS === 'ios' ? "center" : null;
 
 		if (title)
 			return (
-				<Text weight={SEMI_BOLD} style={[{
-					// textAlign,
+				<Text style={[{
+					textAlign,
 					color: "#000000DD",
-					// fontSize: 14,
-					margin: 12,
+					fontSize: 20,
+					margin: 24,
 					marginBottom: 0
 				}, titleStyle]}>
 					{title}
@@ -91,7 +90,26 @@ class AppConfirmDialog extends Component {
 			)
 	}
 
+	renderButtons() {
+		const { buttons, buttonsStyle } = this.props;
 
+		const containerStyle = OS === 'ios' ?
+			{} :
+			{
+				width: '100%',
+				paddingLeft: 24,
+				paddingRight: 8,
+				paddingTop: 8,
+				paddingBottom: 8
+			};
+
+		if (buttons)
+			return (
+				<View style={[containerStyle, buttonsStyle]}>
+					{buttons}
+				</View>
+			)
+	}
 
 	_renderOutsideTouchable(onTouch) {
 		const view = <View style={{ flex: 1, width: '100%' }} />
@@ -170,7 +188,7 @@ class AppConfirmDialog extends Component {
 	}
 }
 
-AppConfirmDialog.propTypes = {
+AppDialog.propTypes = {
 	dialogStyle: ViewPropTypes.style,
 	contentStyle: ViewPropTypes.style,
 	buttonsStyle: ViewPropTypes.style,
@@ -186,10 +204,9 @@ AppConfirmDialog.propTypes = {
 	keyboardShouldPersistTaps: PropTypes.string
 }
 
-AppConfirmDialog.defaultProps = {
+AppDialog.defaultProps = {
 	visible: false,
-	titleStyle: {},
 	onRequestClose: () => null
 };
 
-export default AppConfirmDialog;
+export default AppDialog;

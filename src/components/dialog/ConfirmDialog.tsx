@@ -42,7 +42,19 @@ const DEFAULT_COLOR_BUTTON = "#FF6400";
 const DEFAULT_BACKGROUNDCOLOR_BUTTON = "transparent";
 
 class ConfirmDialog extends Component {
-
+	public props: any;
+	public disabled: any;
+	public backgroundColor: any;
+	public backgroundColorDisabled: any;
+	public othersStyle: any;
+	public color: any;
+	public colorDisabled: any;
+	public message: any;
+	public messageStyle: any;
+	public onPress: any;
+	public negativeButton: any;
+	public positiveButton: any;
+	public children: any;
 	getButtonStyle = (button, positive) => {
 		const { disabled } = button;
 		const style = button.style || {};
