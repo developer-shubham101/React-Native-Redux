@@ -9,7 +9,10 @@
 		"start": "react-native start",
 		"pod": "cd ios && pod install",
 		"test": "jest",
-		"lint": "eslint ."
+		"lint": "eslint .",
+		"build:production:android": "./config/scripts/android.sh apk",
+		"build:production:android:bundle": "./config/scripts/android.sh bundle",
+		"build:production:ios": "./config/scripts/ios.sh production"
 	},
 	"dependencies": {
 		"@react-native-community/async-storage": "^1.12.1",
@@ -35,7 +38,6 @@
 		"react-native-material-ripple": "^0.9.1",
 		"react-native-modal-datetime-picker": "^13.0.1",
 		"react-native-modal-selector": "^2.1.0",
-		"react-native-otp-verify": "^1.0.4",
 		"react-native-reanimated": "^2.3.1",
 		"react-native-safe-area-context": "^3.3.2",
 		"react-native-screens": "^3.10.1",

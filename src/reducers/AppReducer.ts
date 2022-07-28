@@ -10,7 +10,7 @@ import {
 import { appOperation } from '../appOperation';
 
 const INITIAL_STATE = {
-	appOperation: null,
+  appOperation: null,
   storeConfig: null,
   countries: null,
   currency: {
@@ -28,9 +28,10 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case REHYDRATE: {
-      if (action.payload
-        && action.payload.magento
-        && action.payload.appOperation.storeConfig
+      if (
+        action.payload &&
+        action.payload.magento &&
+        action.payload.appOperation.storeConfig
       ) {
         appOperation.setStoreConfig(action.payload.appOperation.storeConfig);
       }
@@ -45,11 +46,7 @@ export default (state = INITIAL_STATE, action) => {
     case MAGENTO_GET_CURRENCY: {
       const {
         currencyData,
-        displayCurrency: {
-          code,
-          symbol,
-          rate
-        }
+        displayCurrency: { code, symbol, rate },
       } = action.payload;
       return {
         ...state,

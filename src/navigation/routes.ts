@@ -1,6 +1,9 @@
-
 export const NAVIGATION_LOGIN_PATH = 'Login';
 
 export const NAVIGATION_AUTH_STACK_PATH = 'Auth';
 export const NAVIGATION_AUTH_LOADING_SWITCH = 'navigation_auth_loading_switch';
 export const NAVIGATION_DASHBOARD = 'Dashboard';
+
+export const NAVIGATION_BIBLE_LIST = 'NAVIGATION_BIBLE_LIST';
+export const NAVIGATION_BIBLE_CHAPTERS = 'NAVIGATION_BIBLE_CHAPTERS';
+export const NAVIGATION_BIBLE_VERVES = 'NAVIGATION_BIBLE_VERVES';

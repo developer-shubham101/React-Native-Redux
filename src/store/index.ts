@@ -5,53 +5,49 @@ import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import { createBlacklistFilter } from 'redux-persist-transform-filter';
 import AsyncStorage from '@react-native-community/async-storage';
 
-
 import { composeWithDevTools } from 'remote-redux-devtools';
 
 import reducers from '../reducers';
 
 const categoryTreeSubsetBlacklistFilter = createBlacklistFilter(
-	'categoryTree',
-	['refreshing'],
+  'categoryTree',
+  ['refreshing'],
 );
 
 const customerAuthSubsetBlacklistFilter = createBlacklistFilter(
-	'customerAuth',
-	['loading', 'reset_loading'],
+  'customerAuth',
+  ['loading', 'reset_loading'],
 );
 
-const accountSubsetBlacklistFilter = createBlacklistFilter(
-	'account',
-	['refreshing'],
-);
+const accountSubsetBlacklistFilter = createBlacklistFilter('account', [
+  'refreshing',
+]);
 
-const cartSubsetBlacklistFilter = createBlacklistFilter(
-	'cart',
-	['addToCartLoading', 'errorMessage', 'refreshing', 'couponLoading'],
-);
+const cartSubsetBlacklistFilter = createBlacklistFilter('cart', [
+  'addToCartLoading',
+  'errorMessage',
+  'refreshing',
+  'couponLoading',
+]);
 
-const homeSubsetBlacklistFilter = createBlacklistFilter(
-	'home',
-	['refreshing'],
-);
+const homeSubsetBlacklistFilter = createBlacklistFilter('home', ['refreshing']);
 
-const searchSubsetBlacklistFilter = createBlacklistFilter(
-	'search',
-	['loadingMore'],
-);
+const searchSubsetBlacklistFilter = createBlacklistFilter('search', [
+  'loadingMore',
+]);
 
 const persistConfig = {
-	key: 'root',
-	transforms: [
-		categoryTreeSubsetBlacklistFilter,
-		customerAuthSubsetBlacklistFilter,
-		accountSubsetBlacklistFilter,
-		cartSubsetBlacklistFilter,
-		homeSubsetBlacklistFilter,
-		searchSubsetBlacklistFilter,
-	],
-	storage: AsyncStorage,
-	stateReconciler: autoMergeLevel2,
+  key: 'root',
+  transforms: [
+    categoryTreeSubsetBlacklistFilter,
+    customerAuthSubsetBlacklistFilter,
+    accountSubsetBlacklistFilter,
+    cartSubsetBlacklistFilter,
+    homeSubsetBlacklistFilter,
+    searchSubsetBlacklistFilter,
+  ],
+  storage: AsyncStorage,
+  stateReconciler: autoMergeLevel2,
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
@@ -59,9 +55,9 @@ const persistedReducer = persistReducer(persistConfig, reducers);
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export const store = createStore(
-	persistedReducer,
-	// composeEnhancer(applyMiddleware(thunk)),
-	composeWithDevTools(applyMiddleware(thunk)),
+  persistedReducer,
+  // composeEnhancer(applyMiddleware(thunk)),
+  composeWithDevTools(applyMiddleware(thunk)),
 );
 
 export const persistor = persistStore(store);

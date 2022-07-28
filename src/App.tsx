@@ -14,31 +14,36 @@ import RootComponent from './RootComponent';
 onAppStart(store);
 
 class ReactNativeRedux extends React.Component {
+  componentDidMount() {
+    SplashScreen.hide();
+  }
 
-	componentDidMount() {
-		SplashScreen.hide();
-	}
-
-	render() {
-		return (
-			<Provider store={store}>
-				<ThemeManager theme={theme}>
-					<RootComponent>
-						<>
-							<Navigator />
-							<Toast ref={(ref) => Toast.setRef(ref)} />
-						</>
-					</RootComponent>
-				</ThemeManager>
-			</Provider>
-		);
-	}
+  render() {
+    return (
+      <Provider store={store}>
+        <ThemeManager theme={theme}>
+          <RootComponent>
+            <>
+              <Navigator />
+              <Toast />
+            </>
+          </RootComponent>
+        </ThemeManager>
+      </Provider>
+    );
+  }
 }
-const mapStateToProps = state => {
-	return {};
+const mapStateToProps = (state) => {
+  return {};
 };
 
-const ReactNativeReduxConnected = connect(mapStateToProps, {})(ReactNativeRedux);
-AppRegistry.registerComponent('ReactNativeRedux', () => ReactNativeReduxConnected);
+const ReactNativeReduxConnected = connect(
+  mapStateToProps,
+  {},
+)(ReactNativeRedux);
+AppRegistry.registerComponent(
+  'ReactNativeRedux',
+  () => ReactNativeReduxConnected,
+);
 
 export default ReactNativeRedux;
